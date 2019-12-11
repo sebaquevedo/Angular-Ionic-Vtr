@@ -41,11 +41,11 @@ export class SinMoradorService {
         @Optional() configuration: Configuration,
         ) {
         if (basePath) {
-            this.basePath = 'http://172.17.118.66:3000/v1/dashboard/tecnicos';
+            this.basePath = basePath;
         }
         if (configuration) {
             this.configuration = configuration;
-            this.basePath = 'http://172.17.118.66:3000/v1/dashboard/tecnicos';
+            this.basePath = basePath || configuration.basePath || this.basePath;
         }
     }
 

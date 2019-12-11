@@ -120,11 +120,11 @@ export class SinMoradorComponent implements OnInit {
       key: 'geoOtLng',
     },
     {
-      title: 'Latitud Foto',
+      title: 'Latitud Tecnico',
       key: 'geoTecnicoLat',
     },
     {
-      title: 'Longitud Foto',
+      title: 'Longitud Tecnico',
       key: 'geoTecnicoLng',
     },
     {
@@ -217,7 +217,7 @@ export class SinMoradorComponent implements OnInit {
           delete sinMorador.imagen;
           return sinMorador;
         });
-        await this.exportXLSXService.generateXSLX(data.sinMorador);
+        await this.exportXLSXService.generateXSLX(this.mapToExcel(data.sinMorador));
       }
     } catch (error) {
       console.log(error);
@@ -227,5 +227,26 @@ export class SinMoradorComponent implements OnInit {
         buttonText: 'Cerrar',
       });
     }
+  }
+
+  mapToExcel(data) {
+    try {
+      data = data.map(sinMorador => {
+        return {
+        'Nombre Tecnico' : sinMorador.nombreTecnico,
+        'Rut Tecnico' : sinMorador.rutTecnico,
+        'N° OT':  sinMorador.numeroOrden,
+        'Empresa' : sinMorador.empresa,
+        'Fecha' : sinMorador.fecha,
+        'Latitud Orden': sinMorador.geoOtLat,
+        'Longitud Orden': sinMorador.geoOtLng,
+        'Latitud Tecnico': sinMorador.geoTecnicoLat,
+        'Longitud Tecnico' : sinMorador.geoTecnicoLng,
+         };
+      });
+    } catch (error) {
+      console.log(error);
+    }
+    return data;
   }
 }
