@@ -11,12 +11,13 @@ export class UiService {
     public dialogService: NbDialogService,
   ) { }
 
-  presentAlert(messages: {title: string, text: string, buttonText: string}) {
+  presentAlert(messages) {
     this.dialogService.open(AlertModalComponent, {
       context: {
         title: messages.title,
         text: messages.text,
         buttonText: messages.buttonText,
+        isError: messages.isError,
       },
     });
   }

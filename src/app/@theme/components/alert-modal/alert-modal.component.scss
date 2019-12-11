@@ -2,7 +2,68 @@
 
 @include nb-install-component() {
   nb-card {
-    max-width: 600px;
-    max-height: 500px;
+    font-family: Neo Sans Std;
+    width: 730px;
+    max-height: 300px;
+    border-radius: 0;
+
+    image {
+      width: 40px;
+      height: 40px;
+    }
+
+  }
+  nb-card-body {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    font-size: 14px;
+    font-family: Neo Sans Std Regular;
+
+    p {
+      max-width: 300px;
+      font-family: Neo Sans Std Regular;
+      font-size: 14px;
+      text-align: center;
+    }
+    strong {
+      font-family: Neo Sans Std;
+      font-size: 16px;
+    }
+  }
+
+  nb-card-header {
+    border-bottom:none;
+    padding: 0;
+    a {
+      margin:-1rem -1.25rem;
+      img {
+        float: right;
+        top:0;
+        right:0;
+        border:none;
+        background: none;
+        color: inherit;
+        padding: 0;
+        font: inherit;
+        cursor: pointer;
+        outline: inherit;
+      }
+    }
+
+
+  }
+  nb-card-footer {
+    display: flex;
+    border-top: 0;
+
+    button {
+      align-self: center;
+      font-family: Neo Sans Std;
+    }
+
   }
 }
+

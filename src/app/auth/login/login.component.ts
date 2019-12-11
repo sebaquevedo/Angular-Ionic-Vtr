@@ -5,6 +5,7 @@ import { StorageUtilService } from '../../service/storage.service';
 import { AuthenticateService } from '../../service/authenticate.service';
 import { Router } from '@angular/router';
 import { UiService } from '../../service/ui.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'ngx-login',
@@ -14,6 +15,8 @@ import { UiService } from '../../service/ui.service';
 export class LoginComponent implements OnInit {
   username: string;
   formLogin: FormGroup;
+  errorText: string;
+
   constructor(
     public formBuilder: FormBuilder,
     public authService: AuthService,
@@ -37,6 +40,7 @@ export class LoginComponent implements OnInit {
         '',
       ],
     });
+
   }
 
   async login() {
@@ -51,10 +55,29 @@ export class LoginComponent implements OnInit {
       this.authenticateService.setProfile(responseProfile);
       await this.router.navigate(['/pages/home']);
     } catch (error) {
-      this.uiService.presentAlert({
-        title: 'Login Incorrecto',
-        text: error.error.message,
-        buttonText: 'Volver a intentar'});
+
+      if (error instanceof HttpErrorResponse) {
+
+        if (error.status === 401 ) {
+          this.errorText = error.error.message;
+          this.uiService.presentAlert({
+            title: 'login Incorrecto',
+            text: error.error.message,
+            buttonText: 'Volver a intentar',
+            isError: true });
+        }
+
+        if (error.status === 500) {
+          this.uiService.presentAlert({
+            title: 'Intermitencia en los servicios',
+            text: 'No se ha podido realizar el login correctamente' + '.' +
+             ' Por favor, inténtalo en unos minutos más' + '.',
+            buttonText: 'Volver a intentar',
+            isError: true });
+        }
+
+
+      }
     }
   }
 }
