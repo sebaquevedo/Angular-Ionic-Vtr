@@ -1,7 +1,9 @@
 <nb-card>
-  <nb-card-header>{{ title }}</nb-card-header>
+  <nb-card-header> <a (click)=close()><img src="/assets/images/cerrar.svg" alt=""></a></nb-card-header>
   <nb-card-body>
-    {{ text }}
+    <img  *ngIf="isError" src="/assets/images/error.svg" alt="">
+    <strong>{{ title }}</strong>
+      <p> {{ text }}</p>
   </nb-card-body>
   <nb-card-footer>
     <button nbButton hero status="danger" (click)="dismiss()">{{ buttonText }}</button>

@@ -1,4 +1,4 @@
-<h1 id="title" class="title">Login</h1>
+<!-- <h1 id="title" class="title">Login</h1> -->
 
 <!--<nb-alert *ngIf="showMessages.error && errors?.length && !submitted" outline="danger" role="alert">
   <p class="alert-title"><b>Oh snap!</b></p>
@@ -13,43 +13,97 @@
     <li *ngFor="let message of messages" class="alert-message">{{ message }}</li>
   </ul>
 </nb-alert>-->
+<div class="parent">
+  <section class="child1">
+      <div class="imageVtr">
+          <img src="/assets/images/Stroke_1.svg" alt="vtr svg">
+      </div>
+      <h3 class="title">
+          ¡Bienvenido al  portal de APP Técnicos!
+      </h3>
+      <p class="subText">
+        En este portal de gestión podrás revisar, comparar
+        y obtener el resultado de tus OT realizadas por
+        medio de la APP Técnicos.
+      </p>
+  </section>
+  <section class="child2">
+      <img src="/assets/images/hr.svg" alt="">
 
-<form (ngSubmit)="login()" [formGroup]="formLogin" aria-labelledby="title">
+      <!-- <hr width="1" size="455" > -->
+  </section>
+  <section class="child3">
+    <div class="header">
+        <img src="/assets/images/logo-vtr-tecnicos.svg" alt="">
+        <!-- <img src="/assets/images/vtr_ventas.svg" alt=""> -->
+        <img src="/assets/images/vtr.svg" alt="">
+        <h3 class="headerText">técnicos</h3>
+    </div>
+    <div class="frame">
+        <div class="loginTitle">login</div>
+        <div class="loginSubtext">Portal Gestion APP ventas</div>
+        <form (ngSubmit)="login()" [formGroup]="formLogin" aria-labelledby="title">
 
-  <div class="form-control-group">
-    <label class="label" for="input-username">Username:</label>
-    <input nbInput
-           fullWidth
-           formControlName="username"
-           id="input-username"
-           placeholder="Username"
-           fieldSize="large"
-           autofocus>
-  </div>
+          <div class="user">
+              <div class="inputTopText">
+                  Ingresa tu usuario
+              </div>
+              <label>
+                  <input type="text" name="userName" id="input-username" placeholder="Nombre usuario" class="inputField" [ngClass]="{
+                      'invalid':   this.errorText,
+                      'validAzul' :  formLogin.valid && !this.errorText
+                  }"
+                  fullWidth
+                  formControlName="username"
+                  id="input-username"
+                  fieldSize="large"
+                  >
+              </label>
+          </div>
 
+          <div class="password">
+              <div class="inputTopText">
+                  Ingresa tu contraseña
+              </div>
+              <input type="password" name="userName" id="pass" class="inputPassField"
 
-  <div class="form-control-group">
-    <span class="label-with-link">
-      <label class="label" for="input-password">Password:</label>
-    </span>
-    <input nbInput
-           fullWidth
-           type="password"
-           id="input-password"
-           placeholder="Password"
-           formControlName="password"
-           fieldSize="large">
-  </div>
+              fullWidth
+              type="password"
+              id="input-password"
+              placeholder="xxxxxxxxxxx"
+              formControlName="password"
+              fieldSize="large"
+              [ngClass]="{
+                invalid:  this.errorText ,
+                validAzul : formLogin.valid && !this.errorText
+              }">
+              <div class="inputBottomText" *ngIf="this.errorText"  [ngClass]="{
+                invalid: this.errorText
+              }">
+                  {{errorText}}
+              </div>
+          </div>
 
-  <div class="form-control-group">
-    <nb-checkbox name="rememberMe" formControlName="remember">Remember me</nb-checkbox>
-  </div>
+          <div class="btnSubmit" [ngClass]="{
+            active: formLogin && formLogin.valid
+          }">
+              <input value="Ingresar"
+              fullWidth
+              size="large"
+              type="submit"
+              [disabled]="formLogin && !formLogin.valid">
+          </div>
+        </form>
 
-  <button nbButton
-          fullWidth
-          size="large"
-          type="submit"
-          [disabled]="formLogin && !formLogin.valid">
-    Log In
-  </button>
-</form>
+    </div>
+    <section class="child4">
+        <img src="/assets/images/down_arrrow.svg" alt="">
+        <a href="#">Descargar App Tecnicos</a>
+    </section>
+    <div class="footerVtr">
+        <div class="j">© 2019 VTR Comunicaciones SpA - Condiciones de uso vtr.com</div>
+    </div>
+
+  </section>
+
+</div>

@@ -11,10 +11,16 @@ export class AlertModalComponent {
   @Input() title: string;
   @Input() text: string;
   @Input() buttonText: string;
+  @Input() isError: boolean;
 
   constructor(protected ref: NbDialogRef<AlertModalComponent>) {}
 
   dismiss() {
     this.ref.close();
   }
+
+  close() {
+    this.dismiss();
+  }
+
 }
