@@ -8,7 +8,7 @@ describe('SinMoradorComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SinMoradorComponent ]
+      declarations: [ SinMoradorComponent ],
     })
     .compileComponents();
   }));
