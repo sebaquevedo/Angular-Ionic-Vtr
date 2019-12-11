@@ -248,10 +248,11 @@ export class ResetComponent implements OnInit {
           'Username': reset.username,
           'Id Vivienda': reset.idVivienda,
           'Id Dispositivo': reset.idDispositivo,
-          'Inicio Proceso': reset.inicio,
-          'Fin Proceso': reset.fin,
+          'Tipo': reset.tipo,
+          'Inicio ': reset.inicio,
+          'Fin ': reset.fin,
           'Mensaje Respuesta': reset.respuesta.mensaje,
-          'Mensaje Codigo': reset.respuesta.codigo,
+          'Código Respuesta': reset.respuesta.codigo,
         };
       });
     } catch (error) {

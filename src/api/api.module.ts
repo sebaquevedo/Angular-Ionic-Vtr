@@ -14,13 +14,13 @@ import { SinMoradorService } from './api/sinMorador.service';
   providers: [
     AuthService,
     ResetService,
-    SinMoradorService ]
+    SinMoradorService ],
 })
 export class ApiModule {
     public static forRoot(configurationFactory: () => Configuration): ModuleWithProviders {
         return {
             ngModule: ApiModule,
-            providers: [ { provide: Configuration, useFactory: configurationFactory } ]
+            providers: [ { provide: Configuration, useFactory: configurationFactory } ],
         };
     }
 
