@@ -1,0 +1,5 @@
+<label [formGroup]="formFilter" >
+        <nb-select [placeholder]="placeholder" [formControlName]="name">
+          <nb-option *ngFor="let option of options" [value]="option">{{option}}</nb-option>
+        </nb-select>
+      </label>

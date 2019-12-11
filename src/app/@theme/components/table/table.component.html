@@ -1,0 +1,24 @@
+<nb-card>
+        <nb-card-header>
+          {{title}}
+        </nb-card-header>
+      
+        <nb-card-body>
+          <div class="mat-elevation-z8">
+              <mat-table #table [dataSource]="dataSource">
+            
+                <!-- Position Column -->
+                <ng-container *ngFor="let column of columnsTable" [matColumnDef]="column.key">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>{{column.title}}</th>
+                  <td mat-cell *matCellDef="let element"> {{element[column.key]}} </td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              </mat-table>
+            
+              <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons pageSize="5" [length]="totalRegistry" (page)="filter($event, formFilter, service)"></mat-paginator>
+            </div>
+            
+        </nb-card-body>
+      </nb-card>
+    

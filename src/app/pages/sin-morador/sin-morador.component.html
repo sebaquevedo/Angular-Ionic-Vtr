@@ -1,0 +1,13 @@
+<nb-card>
+  <nb-card-header>Filtros:</nb-card-header>
+  <nb-card-body>
+    <form (ngSubmit)="filter()" [formGroup]="formFilter" >
+      <ngx-input [formFilter]="formFilter" name="user" placeholder="Username"></ngx-input>
+      <ngx-input [formFilter]="formFilter" name="eps" placeholder="Empresa"></ngx-input>
+      <ngx-date-picker [formFilter]="formFilter" name="fecha"></ngx-date-picker>
+      <ngx-button type="submit" buttonText="Filtrar"></ngx-button>
+    </form>
+  </nb-card-body>
+</nb-card>
+<ngx-button type="submit" buttonText="Exportar" export="true" (click)="exportXSLX()"></ngx-button>
+<ngx-table title="Datos Sin Morador"  [dataSource]="dataSource" [columnsTable]="columnsTable" [displayedColumns]="displayedColumns" [columns]="columns" [service]="sinMoradorService" [filter]="filter" [totalRegistry]="totalRegistry" [formFilter]="formFilter"></ngx-table>
