@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "dashboard-template": {
+    "dashboard-tecnicos": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -71,18 +71,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "dashboard-template:build"
+            "browserTarget": "dashboard-tecnicos:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "dashboard-template:build:production"
+              "browserTarget": "dashboard-tecnicos:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "dashboard-template:build"
+            "browserTarget": "dashboard-tecnicos:build"
           }
         },
         "test": {
@@ -135,7 +135,7 @@
         }
       }
     },
-    "dashboard-template-e2e": {
+    "dashboard-tecnicos-e2e": {
       "root": "",
       "sourceRoot": "",
       "projectType": "application",
@@ -144,7 +144,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "./protractor.conf.js",
-            "devServerTarget": "dashboard-template:serve"
+            "devServerTarget": "dashboard-tecnicos:serve"
           }
         },
         "lint": {
@@ -159,7 +159,7 @@
       }
     }
   },
-  "defaultProject": "dashboard-template",
+  "defaultProject": "dashboard-tecnicos",
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "ngx",
