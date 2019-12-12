@@ -19,10 +19,13 @@
 }
 
 @font-face {
-  font-family: Neo Sans Std;
+  font-family: Neo Sans Std Regular;
   src: url('/assets/font/NeoSansStd-Regular.otf') format('truetype');
 }
-
+@font-face {
+  font-family: Neo Sans Std Light;
+  src: url('/assets/font/Neo-Sans-Std-Light-Font.otf') format('truetype');
+}
 body {
   font-family: Neo Sans Std;
   /* Change the white to any color ;) */
